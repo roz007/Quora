@@ -1,0 +1,24 @@
+<a href='{% url "logout-view" %}'>Logout</a>
+Welcome,
+{{userdetail.username}}
+<br/>
+Ask a Question!
+
+<form action="" method="POST">
+    {% csrf_token %}
+    
+        {{ form.as_p }}
+    
+    <input type="submit" name="ok" value="ASK" />
+</form>
+<br/>
+Asked Questions.
+<br/>
+{% for question in questions %}
+<li><a href="/core/answer/{{question.id}}">{{question.question}}</a></li>
+{% endfor %}
+<br/>
+Answers.
+{% for answer in answers %}
+<li>{{answer.answer_text}} by {{answer.user.username}} </li>
+{% endfor %}

@@ -1,0 +1,15 @@
+
+<h3>{{ question.question }}</h3>
+
+
+<form action="" method="POST">
+	{% csrf_token %}
+
+        {{ answerform.as_table }}
+
+    <input type="submit" name="login" value="Submit Answer" />
+</form>
+{% for answer in answers %}
+    <p>{{ answer.answer_text}}
+    </p>	
+{% endfor %}
